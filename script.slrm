@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --account=curso04
+#SBATCH --nodes=1
+#SBATCH --job-name=FLORES
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --time=04:00:00
+#SBATCH --partition=cpu
+#SBATCH --output=resultados_%j.txt
+#SBATCH --error=resultados_%j.txt
+
+echo "FLORES"
+source /apps/miniconda3/etc/profile.d/conda.sh
+conda activate coffe311
+cd /lustre/home/estudiante_01/flores_TL
+
+python entrenar_flores.py
